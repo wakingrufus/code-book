@@ -1,0 +1,10 @@
+build/
+.gradle/
+gradlew.bat
+.idea/
+shippable/
+*.iml
+*.ipr
+*.iws
+gradle.properties
+.directory
