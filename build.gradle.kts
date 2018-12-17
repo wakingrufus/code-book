@@ -25,12 +25,12 @@ dependencies {
     compile(kotlin("stdlib"))
     compile("io.github.microutils:kotlin-logging:1.6.10")
     compile("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("com.marcinmoskala:DiscreteMathToolkit:1.0.3")
     listOf("slf4j-api", "slf4j-log4j12").forEach {
         implementation(group = "org.slf4j", name = it, version = "1.7.25")
     }
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.1")
-    testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.12")
-    
+    testImplementation("org.jetbrains.kotlin:kotlin-test")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
 }
 
