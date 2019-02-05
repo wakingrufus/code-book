@@ -35,8 +35,16 @@ class SubstitutionKey(val map: Map<Char, Char>) : Key() {
             return SubstitutionKey(('A'..'Z').zip(key.toCharArray().toList()).toMap())
         }
 
-        fun of(map: Map<Char, Char>): SubstitutionKey{
+        fun of(map: Map<Char, Char>): SubstitutionKey {
             return SubstitutionKey(map)
+        }
+    }
+}
+
+class SquareKey(val keys: List<SubstitutionKey>) : Key() {
+    companion object {
+        fun keyphrase(keyphrase: String): SquareKey {
+            return SquareKey(keyphrase.map { SubstitutionKey.rotation(it.toLowerCase() - 'a') })
         }
     }
 }

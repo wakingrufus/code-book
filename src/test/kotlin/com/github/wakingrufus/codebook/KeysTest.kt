@@ -71,4 +71,24 @@ internal class KeysTest {
         assertEquals(actual = key.map['J'], expected = 'T')
         assertEquals(actual = key.map['K'], expected = 'V')
     }
+
+    @Test
+    fun `test square key passphrase single char`() {
+        val key = SquareKey.keyphrase("a")
+        assertEquals(key.keys.size, 1)
+        key.keys[0].map.forEach {
+            assertEquals(it.key, it.value)
+        }
+    }
+
+    @Test
+    fun `test square key passphrase word`() {
+        val key = SquareKey.keyphrase("white")
+        assertEquals(actual = key.keys.size, expected = 5)
+        assertEquals(actual = key.keys[0].map, expected = SubstitutionKey.rotation(22).map)
+        assertEquals(actual = key.keys[1].map, expected = SubstitutionKey.rotation(7).map)
+        assertEquals(actual = key.keys[2].map, expected = SubstitutionKey.rotation(8).map)
+        assertEquals(actual = key.keys[3].map, expected = SubstitutionKey.rotation(19).map)
+        assertEquals(actual = key.keys[4].map, expected = SubstitutionKey.rotation(4).map)
+    }
 }
